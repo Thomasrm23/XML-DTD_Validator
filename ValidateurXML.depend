@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1603724408 source:c:\users\maman 2.0\desktop\cours\c\project1\validateurxml\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<strings.h>
+

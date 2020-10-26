@@ -3,30 +3,33 @@
 #include <string.h>
 #include <assert.h>
 
-#include <sys/file.h>
-#include <strings.h>
-long fileLength(FILE* file);
 
-int main(int argc,char* argv[])
-{
+/* Librairies potentiellement utiles
+#include <cytpe.h>
+ */
+
+long filelength(FILE* file);
+
+
+int main(int argc,char* argv[]){
     FILE* xmlFile;
 
     xmlFile = fopen("fichierTest.xml","r");
     if(xmlFile == NULL){
         perror("File cannot be read because");
-        exit(-1);
+        exit(1);
     }
 
-    long fLength = fileLength(xmlFile);
-    char fBuffer[fLength];
-
+    long fLength = filelength(xmlFile);
+    char* fBuffer = (char *)malloc(fLength * sizeof(char*));
     fread(fBuffer,fLength,1,xmlFile);
 
+    printf("%s\n",fBuffer);
     fclose(xmlFile);
     return 0;
 }
 
-long fileLength(FILE* file){
+long filelength(FILE* file){
     assert(file != NULL);
 
     fseek(file,0L,SEEK_END);
