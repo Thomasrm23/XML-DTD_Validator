@@ -1,9 +1,0 @@
-# depslib dependency file v1.0
-1605095556 source:c:\users\0017447p\thomas\esgi\3iabd2\c\dtd project\prog\xml_dtd_git\main.c
-	"parsing_xml.h"
-
-1605095513 c:\users\0017447p\thomas\esgi\3iabd2\c\dtd project\prog\xml_dtd_git\parsing_xml.h
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-
