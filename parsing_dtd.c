@@ -24,11 +24,11 @@ void DTDNode_free(DTDNode* node)
 }
 */
 
-int DTDDocument_load(DTDDocument* doc, const char* path){
+bool DTDDocument_load(DTDDocument* doc, const char* path){
     FILE* fp = fopen(path, "r");
     if (!fp){
         fprintf(stderr, "Could not load file from '%s'\n", path);
-        return FALSE;
+        return false;
     }
     fseek(fp, 0, SEEK_END);
     int size = ftell(fp);
@@ -104,7 +104,7 @@ int DTDDocument_load(DTDDocument* doc, const char* path){
                             store[position++] = buffer[i++];
                         }
                         if (buffer[i] == '+'){
-                            current_node->several[children_count] = 1;
+                            current_node->several[children_count] = true;
                             i++;
                         }
                         store[position] = '\0';
@@ -130,7 +130,7 @@ int DTDDocument_load(DTDDocument* doc, const char* path){
 
                 if(!current_node){
                     fprintf(stderr, "Texte en dehors de balise");
-                    return FALSE;
+                    return false;
                 }
             }*/
         }
@@ -138,6 +138,6 @@ int DTDDocument_load(DTDDocument* doc, const char* path){
             store[position++] = buffer[i++];
         }
     }
-    return TRUE;
+    return true;
 }
 

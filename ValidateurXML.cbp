@@ -31,6 +31,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="parsing_dtd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="parsing_xml.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="parsing_dtd.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

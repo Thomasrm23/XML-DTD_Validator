@@ -15,3 +15,25 @@
 	<stdlib.h>
 	<string.h>
 
+1605603970 source:c:\users\ephraim\desktop\c\validateurxml\main.c
+	"parsing_xml.h"
+	"parsing_dtd.h"
+
+1605604037 c:\users\ephraim\desktop\c\validateurxml\parsing_xml.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
+1605604025 c:\users\ephraim\desktop\c\validateurxml\parsing_dtd.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+
+1605603586 source:c:\users\ephraim\desktop\c\validateurxml\parsing_xml.c
+	"parsing_xml.h"
+
+1605604003 source:c:\users\ephraim\desktop\c\validateurxml\parsing_dtd.c
+	"parsing_dtd.h"
+
