@@ -7,7 +7,7 @@ DTDNode* DTDNode_new(DTDNode* parent) //cré new node et met le parent à nul
     node->parent = parent;
     node->tag_type = NULL;
     node->tag_name = NULL;
-  //  node->inner_text = NULL;
+    //  node->inner_text = NULL;
     return node;
 }
 
@@ -51,7 +51,7 @@ bool DTDDocument_load(DTDDocument* doc, const char* path){
 
         if ((buffer[i] == '<') && (buffer[i+1] == '!')){
 
-           // store[position] = '\0';
+            // store[position] = '\0';
 
 
             if (!current_node){
@@ -63,7 +63,7 @@ bool DTDDocument_load(DTDDocument* doc, const char* path){
 
             i++; // incrementer pour arriver à la partie à stocker
             while ((buffer[i]) != ' '){
-       //     while(buffer[i] != buffer[i+1]){
+                //     while(buffer[i] != buffer[i+1]){
                 //printf("%c\n", buffer[i]);
                 store[position++] = buffer[i++];
             }
@@ -88,7 +88,7 @@ bool DTDDocument_load(DTDDocument* doc, const char* path){
                 i++;
 
                 if ((buffer[i]) == '#'){
-                        i++;
+                    i++;
                     while ((buffer[i]) != ')'){
                         store[position++] = buffer[i++];
                     }
@@ -104,7 +104,7 @@ bool DTDDocument_load(DTDDocument* doc, const char* path){
                             store[position++] = buffer[i++];
                         }
                         if (buffer[i] == '+'){
-                            current_node->several[children_count] = true;
+                            *(current_node->several[children_count]) = true;
                             i++;
                         }
                         store[position] = '\0';
@@ -120,19 +120,19 @@ bool DTDDocument_load(DTDDocument* doc, const char* path){
             }
 
 
-           /* if ((buffer[i]) == ' '){
-                i++;
-                while ((buffer[i]) != ' '){
-                    store[position++] = buffer[i++];
-                }
-                current_node->tag_name = strdup(store);
-                position = 0;
+            /* if ((buffer[i]) == ' '){
+                 i++;
+                 while ((buffer[i]) != ' '){
+                     store[position++] = buffer[i++];
+                 }
+                 current_node->tag_name = strdup(store);
+                 position = 0;
 
-                if(!current_node){
-                    fprintf(stderr, "Texte en dehors de balise");
-                    return false;
-                }
-            }*/
+                 if(!current_node){
+                     fprintf(stderr, "Texte en dehors de balise");
+                     return false;
+                 }
+             }*/
         }
         else{
             store[position++] = buffer[i++];
@@ -140,4 +140,3 @@ bool DTDDocument_load(DTDDocument* doc, const char* path){
     }
     return true;
 }
-
