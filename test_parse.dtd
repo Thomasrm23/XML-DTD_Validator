@@ -1,1 +1,1 @@
-<!ELEMENT from (to,tree,foor)>
+<!ELEMENT note (to,tree,foor)>

@@ -15,7 +15,8 @@
 	<stdlib.h>
 	<string.h>
 
-1605603970 source:c:\users\ephraim\desktop\c\validateurxml\main.c
+1605875676 source:c:\users\ephraim\desktop\c\validateurxml\main.c
+	<stdio.h>
 	"parsing_xml.h"
 	"parsing_dtd.h"
 
@@ -34,6 +35,6 @@
 1605604063 source:c:\users\ephraim\desktop\c\validateurxml\parsing_xml.c
 	"parsing_xml.h"
 
-1605777362 source:c:\users\ephraim\desktop\c\validateurxml\parsing_dtd.c
+1605800523 source:c:\users\ephraim\desktop\c\validateurxml\parsing_dtd.c
 	"parsing_dtd.h"
 
