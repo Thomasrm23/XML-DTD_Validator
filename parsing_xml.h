@@ -34,11 +34,31 @@ struct _XMLDocument
 
 typedef struct _XMLDocument XMLDocument;
 
+/**
+* Création d'un nœud associé à une nouvelle balise XML
+* @param[in] parent : Le nœud père
+* @param[out] node : le nouveau nœud créé
+*/
+XMLNode* XMLNode_new(XMLNode* parent);
 
-XMLNode* XMLNode_new(XMLNode* parent);  //creer une "node" pour nvlle balise xml
+/**
+* Désallocation d'un nœud XML en mémoire
+* @param[in] node : Le nœud à désaouller
+*/
 void XMLNode_free(XMLNode* node);
-void XMLNode_free(XMLNode* node);
+
+/**
+* Chargement d'un document XML
+* @param[in] doc : La structure dans lequel les éléments du fichiers seront stockés
+* @param[in] path : Le chemin du fichier DTD
+* @param[out]  true ou false : Le document a pu être chargé ou non
+*/
 bool XMLDocument_load(XMLDocument* doc, const char* path);
+
+/**
+* Désallocation d'un document XML en mémoire
+* @param[in] doc : Le document à désallouer
+*/
 void XMLDocument_free(XMLDocument* doc);
 
 #endif // PARSING_XML_H_INCLUDED

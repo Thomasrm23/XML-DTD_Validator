@@ -35,9 +35,20 @@ struct _DTDDocument
 };
 typedef struct _DTDDocument DTDDocument;
 
-
+/**
+* Création d'un nœud associé à un élément du DTD
+* @param[in] parent : Le nœud père
+* @param[out] node : le nouveau nœud créé
+*/
 DTDNode* DTDNode_new(DTDNode* parent);  //creer une "node" pour nvlle balise DTD
 //void DTDNode_free(DTDNode* node);
+
+/**
+* Chargement d'un document DTD
+* @param[in] doc : La structure dans lequel les éléments du fichiers seront stockés
+* @param[in] path : Le chemin du fichier DTD
+* @param[out]  true ou false : Le document a pu être chargé ou non
+*/
 bool DTDDocument_load(DTDDocument* doc, const char* path);
 // void DTDDocument_free(DTDDocument* doc);
 

@@ -2,7 +2,12 @@
 #include "parsing_xml.h"
 #include "parsing_dtd.h"
 
-
+/**
+* Vérification de la présence d'un tag XML dans le DTD
+* @param[in] xmlTag : Le tag présent dans le fichier XML
+* @param[in] dtdTag : Le tag présent dans le fichier DTD
+* @param[out] boolean : Le tag XML est présent dans le DTD ou non
+*/
 bool isInDTD(char* xmlTag,char* dtdTag){
     if (strcmp(xmlTag,dtdTag) == 0){
         printf("Le tag %s est defini dans le DTD.",xmlTag);
