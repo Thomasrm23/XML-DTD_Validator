@@ -92,6 +92,7 @@ int XMLDocument_load(XMLDocument* doc, const char* path)
 
     doc->root = XMLNode_new(NULL);  //root node qui n'a pas de parent
 
+    doc->child_number = 0;
     char store[256];  //stocker les caracteres
     int position = 0;
     int i = 0;
@@ -134,6 +135,7 @@ int XMLDocument_load(XMLDocument* doc, const char* path)
                 }
 
                 curr_node = curr_node->parent; //see what is it, to return to the parent sort of
+                doc->child_number++;
                 i++;
                 continue;
             }
@@ -197,7 +199,7 @@ int XMLDocument_load(XMLDocument* doc, const char* path)
                 //valeur
                 if (buf[i] == '"') {
                     if (!curr_attr.key) {
-                        fprintf(stderr, "Valeur n'a pas d'attributs\n");
+                        fprintf(stderr, "Erreur de valeur ou d'attributs dans le xml pour la balise \"%s\"\n", curr_node->tag);
                         return FALSE;
                     }
 

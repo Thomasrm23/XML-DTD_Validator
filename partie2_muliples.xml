@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<classrooms>
+	<classroom students="30" color="white">AL</classroom>
+	<classroom students="40" color="blue">IABD</classroom>
+	<classroom students="25" color="green">MOC</classroom>
+	<classroom students="20" color="purple">IBC</classroom>
+	<classroom students="30" color="pink">AL</classroom>
+	<classroom students="40" color="red">IABD</classroom>
+	<classroom students="25" color="yellow">MOC</classroom>
+	<classroom students="20" color="">IBC</classroom>
+</classrooms>

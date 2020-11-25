@@ -54,7 +54,7 @@ typedef struct XMLNode XMLNode;
 struct XMLDocument
 {
     XMLNode* root;
-    int* child_number;
+    int child_number;
 };
 typedef struct XMLDocument XMLDocument;
 
