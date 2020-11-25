@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<classrooms>
+	<classroom students="30">AL</classroom>
+	<classroom students="40">IABD</classroom>
+	<classroom students="25">MOC</classroom>
+	<classroom students="20">IBC</classroom>
+</classrooms>

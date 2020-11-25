@@ -4,61 +4,74 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
 
-/*
 #ifndef TRUE
     #define TRUE 1
 #endif
 #ifndef FALSE
     #define FALSE 0
 #endif
-*/
+
+
+
+struct XMLAttribute
+{
+    char* key;
+    char* value;
+};
+typedef struct XMLAttribute XMLAttribute;
+
+
+struct XMLAttributeList
+{
+    int heap_size;
+    int size;
+    XMLAttribute* data;
+};
+typedef struct XMLAttributeList XMLAttributeList;
+
+struct XMLNodeList
+{
+    int heap_size;
+    int size;
+    struct XMLNode** data;
+};
+typedef struct XMLNodeList XMLNodeList;
+
 
 // structure pour enregistrer les elements du fichier xml
-struct _XMLNode
+struct XMLNode
 {
     char* tag;
     char* inner_text;
-    struct _XMLNode* parent;
-    //  XMLAttributeList attributes;
-    //  XMLNodeList children;
+    struct XMLNode* parent;
+    XMLAttributeList attributes;
+    XMLNodeList children;
 };
-typedef struct _XMLNode XMLNode;
+typedef struct XMLNode XMLNode;
 
 //structure pour le document
-struct _XMLDocument
+struct XMLDocument
 {
     XMLNode* root;
+    int* child_number;
 };
+typedef struct XMLDocument XMLDocument;
 
-typedef struct _XMLDocument XMLDocument;
+void XMLNodeList_init(XMLNodeList* list);
+void XMLNodeList_add(XMLNodeList* list, struct XMLNode* node);
 
-/**
-* Création d'un nœud associé à une nouvelle balise XML
-* @param[in] parent : Le nœud père
-* @param[out] node : le nouveau nœud créé
-*/
-XMLNode* XMLNode_new(XMLNode* parent);
+XMLNode* XMLNode_child(XMLNode* parent, int index);
 
-/**
-* Désallocation d'un nœud XML en mémoire
-* @param[in] node : Le nœud à désaouller
-*/
+void XMLAttribute_free(XMLAttribute* attr);
+
+void XMLAttributeList_init(XMLAttributeList* list);
+void XMLAttributeList_add(XMLAttributeList* list, XMLAttribute* attr);
+
+XMLNode* XMLNode_new(XMLNode* parent);  //creer une "node" pour nvlle balise xml
 void XMLNode_free(XMLNode* node);
-
-/**
-* Chargement d'un document XML
-* @param[in] doc : La structure dans lequel les éléments du fichiers seront stockés
-* @param[in] path : Le chemin du fichier DTD
-* @param[out]  true ou false : Le document a pu être chargé ou non
-*/
-bool XMLDocument_load(XMLDocument* doc, const char* path);
-
-/**
-* Désallocation d'un document XML en mémoire
-* @param[in] doc : Le document à désallouer
-*/
+int XMLDocument_load(XMLDocument* doc, const char* path);
 void XMLDocument_free(XMLDocument* doc);
+
 
 #endif // PARSING_XML_H_INCLUDED
